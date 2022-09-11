@@ -1,0 +1,36 @@
+local function a()
+	  while KillAura_BRUH do
+        wait(KillAuraDelay_BRUH)
+        for _,v in pairs(game.Workspace.NPCs:GetChildren()) do 
+            pcall(function()
+                game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart")
+                game.Workspace.NPCs:WaitForChild(v.Name):WaitForChild("HumanoidRootPart")
+                if v:FindFirstChild("HumanoidRootPart") and game.Workspace.NPCs:FindFirstChild(v.Name) then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).magnitude < KillAuraRange_BRUH then 
+                        game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Equipment")
+                        for _,z in pairs(game.Workspace[game.Players.LocalPlayer.Name].Equipment:GetDescendants()) do 
+                            if z:IsA("Attachment") and string.find(z.Name, "DmgPoint") then 
+                                if KillAuraAttack_BRUH == "JoustHurt" then
+                                    wep_BRUH = "JoustHurt"
+                                    wait(0.1)
+                                else
+                                    wep_BRUH = KillAuraAttack_BRUH.."Event"
+                                end
+                                local args = {
+                                    [1] = "Input",
+                                    [2] = z.Parent.Name,
+                                    [3] = 0,
+                                    [4] = wep_BRUH,
+                                    [5] = v.HumanoidRootPart
+                                }
+                                
+                                game:GetService("Players").LocalPlayer.Character.Combat.RemoteEvent:FireServer(unpack(args))
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end
