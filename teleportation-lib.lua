@@ -181,10 +181,9 @@ end
 function Module:Instant_Teleport(Destinition_Vector3, heart)
     local humanoid_root_part = character:WaitForChild("HumanoidRootPart")
     local heart = heart or humanoid_root_part
-	wait(5)
 
     heart.CFrame = CFrame.new(Destinition_Vector3)
-		wait(5)
+		task.wait(1)
 
 end
 
