@@ -184,7 +184,7 @@ function Module:Instant_Teleport(Destinition_Vector3, heart)
     local heart = heart or humanoid_root_part
 
     heart.CFrame = CFrame.new(Destinition_Vector3)
-		task.wait(12)
+		task.wait(10)
 
 end
 
