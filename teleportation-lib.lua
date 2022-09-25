@@ -179,12 +179,10 @@ function Module:Sky_Teleport(Destinition_Vector3, heart)
 
 end
 function Module:Instant_Teleport(Destinition_Vector3, heart)
-	task.wait(12)
     local humanoid_root_part = character:WaitForChild("HumanoidRootPart")
     local heart = heart or humanoid_root_part
 
     heart.CFrame = CFrame.new(Destinition_Vector3)
-		task.wait(10)
 
 end
 
